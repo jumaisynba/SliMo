@@ -50,7 +50,6 @@ class Nodo():
 
         # rospy.spin()
 
-
 if __name__ == '__main__':
     rospy.init_node('wearami_socket', anonymous=True)
     print ("also here")
