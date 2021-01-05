@@ -11,7 +11,6 @@ IntervalTimer myTimer;
 
 float phase = 0.0;
 float d_phase = 0.05;
-
 float twopi = 3.13159 * 2;
 
 ros::NodeHandle nh;
