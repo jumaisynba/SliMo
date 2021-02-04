@@ -636,7 +636,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stick: {fileID: 733636940}
-  value: {fileID: 0}
 --- !u!23 &1068070062
 MeshRenderer:
   m_ObjectHideFlags: 0
