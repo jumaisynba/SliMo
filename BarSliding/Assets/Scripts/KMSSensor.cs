@@ -24,7 +24,7 @@ public class KMSSensor : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			//SendMessage();
+			SendMessage();
 		}
 	}
 	/// <summary> 	
@@ -72,7 +72,7 @@ public class KMSSensor : MonoBehaviour
 						{
 							if (number!="")
 							{
-								Debug.Log(number);
+								//Debug.Log(number);
 								pos = float.Parse(number);
 							}
 							
