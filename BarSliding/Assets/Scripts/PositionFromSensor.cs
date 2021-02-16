@@ -13,8 +13,13 @@ public class PositionFromSensor : MonoBehaviour
     private Transform hand;
     private GameObject tempHand;
     public float force;
-    [Range(1.0f,10f)]
-    public float coeficient=1f; 
+    public float shiftCoef = 0f;
+    public float prevCoef = 0f;
+
+
+
+    [Range(5.0f,10f)]
+    public float coeficient=5f; 
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +35,7 @@ public class PositionFromSensor : MonoBehaviour
     {
         if (coeficient == 0.0f)
         {
-            coeficient = 1.0f;
+            coeficient = 5.0f;
         }
         if (value.pos >= -27)
         {
@@ -41,10 +46,17 @@ public class PositionFromSensor : MonoBehaviour
         {
             force = value.pos / (10f * coeficient);
             //tempHand.active = true;
+            
 
         }
-        stick.transform.position = new Vector3(-3.06f, 20 + force, 7f);
-        hand.transform.position = new Vector3(-15.18f, 10.95f + force, -0.82f); 
+
+        if (coeficient != prevCoef)
+        {
+            shiftCoef = force;
+            prevCoef = coeficient;
+        }
+        stick.transform.position = new Vector3(-3.06f, 20 + force-shiftCoef, 7f);
+        hand.transform.position = new Vector3(-15.18f, 10.95f + force-shiftCoef, -0.82f); 
         //if (stream.IsOpen)
         //{
         //    int data = Mathf.Abs((int)value.pos);
