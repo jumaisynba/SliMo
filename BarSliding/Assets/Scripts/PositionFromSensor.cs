@@ -6,16 +6,19 @@ using System.IO.Ports;
 
 public class PositionFromSensor : MonoBehaviour
 {
-    //SerialPort stream = new SerialPort("\\\\.\\COM12", 9600);
 
     public Rigidbody stick;
     private KMSSensor value;
     private Transform hand;
     private GameObject tempHand;
+    private Transform sphere;
+
     public float force;
     public float shiftCoef = 0f;
     public float prevCoef = 0f;
 
+    public float fVector;
+    Vector3 scaler;
 
 
     [Range(5.0f,10f)]
@@ -26,7 +29,8 @@ public class PositionFromSensor : MonoBehaviour
         value = stick.GetComponent<KMSSensor>();
         hand = GameObject.Find("RightHand").GetComponent<Transform>();
         tempHand = GameObject.Find("RightHand");
-        //stream.Open();
+
+        sphere = GameObject.Find("Sphere").GetComponent<Transform>();
 
     }
 
@@ -37,14 +41,19 @@ public class PositionFromSensor : MonoBehaviour
         {
             coeficient = 5.0f;
         }
-        if (value.pos >= -27)
+        if (value.pos >= -30.0f && value.pos<=-24.0f )
         {
-            force = -2.7f/coeficient;
             //tempHand.active = false;
+            force = value.pos / (10f * coeficient);
+
+        }else if(value.pos <= -30.0f)
+        {
+            force = -30.0f/ (10f * coeficient);
         }
         else
         {
-            force = value.pos / (10f * coeficient);
+            force = -2.4f / coeficient;
+
             //tempHand.active = true;
             
 
@@ -55,13 +64,12 @@ public class PositionFromSensor : MonoBehaviour
             shiftCoef = force;
             prevCoef = coeficient;
         }
+        fVector = force - shiftCoef;
+        scaler = new Vector3(2f - fVector, 2f + fVector, 2f - fVector);
         stick.transform.position = new Vector3(-3.06f, 20 + force-shiftCoef, 7f);
-        hand.transform.position = new Vector3(-15.18f, 10.95f + force-shiftCoef, -0.82f); 
-        //if (stream.IsOpen)
-        //{
-        //    int data = Mathf.Abs((int)value.pos);
-        //    stream.WriteLine(data.ToString());
-        //    Debug.Log("data sent: "+ data);
-        //}
+        hand.transform.position = new Vector3(-15.18f, 10.95f + force-shiftCoef, -0.82f);
+
+        sphere.localScale = scaler;
+
     }
 }

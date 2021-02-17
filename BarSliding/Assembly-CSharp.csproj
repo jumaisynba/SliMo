@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Lamp Assets\Scripts\Lamp.cs" />
     <Compile Include="Assets\NVIDIA\Flex\Actors\FlexActor.cs" />
     <Compile Include="Assets\NVIDIA\Flex\Actors\FlexArrayActor.cs" />
     <Compile Include="Assets\NVIDIA\Flex\Actors\FlexClothActor.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\Scripts\GravityControl.cs" />
     <Compile Include="Assets\Scripts\KMSSensor.cs" />
     <Compile Include="Assets\Scripts\PositionFromSensor.cs" />
+    <Compile Include="Assets\Scripts\StaticPositio.cs" />
     <None Include="Assets\NVIDIA\Flex\Resources\Shaders\FluidDepthBlur.shader" />
     <None Include="Assets\NVIDIA\Flex\Resources\Shaders\SurfaceShader.shader" />
     <None Include="Assets\NVIDIA\Flex\Resources\Shaders\FluidThickness.shader" />
