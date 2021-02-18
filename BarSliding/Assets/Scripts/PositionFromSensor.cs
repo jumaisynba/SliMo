@@ -30,7 +30,7 @@ public class PositionFromSensor : MonoBehaviour
         hand = GameObject.Find("RightHand").GetComponent<Transform>();
         tempHand = GameObject.Find("RightHand");
 
-        sphere = GameObject.Find("Sphere").GetComponent<Transform>();
+        //sphere = GameObject.Find("Sphere").GetComponent<Transform>();
 
     }
 
@@ -65,11 +65,11 @@ public class PositionFromSensor : MonoBehaviour
             prevCoef = coeficient;
         }
         fVector = force - shiftCoef;
-        scaler = new Vector3(2f - fVector, 2f + fVector, 2f - fVector);
-        stick.transform.position = new Vector3(-3.06f, 20 + force-shiftCoef, 7f);
+        //scaler = new Vector3(2f - fVector, 2f + fVector, 2f - fVector);
+        stick.transform.position = new Vector3(-3.06f, 16.93f + force-shiftCoef, 7f);
         hand.transform.position = new Vector3(-15.18f, 10.95f + force-shiftCoef, -0.82f);
 
-        sphere.localScale = scaler;
+        //sphere.localScale = scaler;
 
     }
 }
