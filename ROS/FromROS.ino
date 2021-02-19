@@ -13,11 +13,12 @@ IntervalTimer myTimer;
 
 float phase = 0.0;
 float freq = 100;
-float d_phase = 0.05;
 
-float d_phase1 = 0.05;
-float d_phase2 = 0.1;
+float d_phase1 = 0.125;
+float d_phase2 = 0.25;
 float d_phase3 = 0.5;
+
+float d_phase = d_phase1;
 
 
 float twopi = 3.13159 * 2;
@@ -31,7 +32,7 @@ float curT;
 
 unsigned long lastTime = 0;
 
-unsigned long dt = 1; // dt in milliseconds
+unsigned long dt = 3; // dt in milliseconds
 
 float wait = 1000;
 ros::NodeHandle nh;
@@ -85,7 +86,7 @@ void loop() {
   {
     lastTime = millis();
     int sensorValue;
-    if (varData >= -45.0 && varData <= -24.0) {
+    if (varData >= -35.0 && varData <= -24.0) {
       sensorValue = varData;
     } else {
       sensorValue = 0;
@@ -104,11 +105,11 @@ void loop() {
     vIn = 0;
   }
 
-  if (millis() - curT >= wait  && rotData > 2.0) {
+  if (millis() - curT >= wait && rotData > 2.0) {
     curT = millis();
-    nh.loginfo("changed");
+    nh.loginfo("changed phase mode");
 
-    if (d_phase == d_phase1) {
+    if (d_phase == d_phase1 ) {
       d_phase = d_phase2;
       nh.loginfo("2");
 
