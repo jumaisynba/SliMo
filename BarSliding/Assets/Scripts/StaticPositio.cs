@@ -17,8 +17,8 @@ public class StaticPositio : MonoBehaviour
     Vector3 scaler;
 
 
-    [Range(0.0f, 1.4f)]
-    public float scaleX;
+    //[Range(0.0f, 1.4f)]
+    //public float scaleX;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,17 +36,17 @@ public class StaticPositio : MonoBehaviour
     void Update()
     {
         spherePosition.x = x;
-        spherePosition.y = y;
+        spherePosition.y = y;//transform.position.y;
         spherePosition.z = z;
 
         rotatiom.x = xR;
         rotatiom.y = yR;
         rotatiom.z = zR;
 
-        scaler = new Vector3(2f + scaleX, 2f - scaleX, 2f  + scaleX);
+        //scaler = new Vector3(2f + scaleX, 2f - scaleX, 2f  + scaleX);
 
         transform.position = spherePosition;
         transform.rotation = rotatiom;
-        transform.localScale = scaler;
+        //transform.localScale = scaler;
     }
 }

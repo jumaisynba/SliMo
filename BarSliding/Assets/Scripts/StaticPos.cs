@@ -8,12 +8,20 @@ public class StaticPos : MonoBehaviour
     float x;
     float y;
     float z;
+
+    float xR;
+    float yR;
+    float zR;
     // Start is called before the first frame update
     void Start()
     {
         x = transform.position.x;
         y = transform.position.y;
         z = transform.position.z;
+
+        xR = transform.rotation.x;
+        yR = transform.rotation.y;
+        zR = transform.rotation.z;
 
     }
 

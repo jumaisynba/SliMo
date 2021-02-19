@@ -19,7 +19,7 @@ public class PositionFromSensor : MonoBehaviour
 
     public float fVector;
     Vector3 scaler;
-
+    public float travelLimit = -35.0f;
 
     [Range(5.0f,10f)]
     public float coeficient=5f; 
@@ -41,14 +41,14 @@ public class PositionFromSensor : MonoBehaviour
         {
             coeficient = 5.0f;
         }
-        if (value.pos >= -30.0f && value.pos<=-24.0f )
+        if (value.pos >= travelLimit && value.pos<=-24.0f )
         {
             //tempHand.active = false;
             force = value.pos / (10f * coeficient);
 
-        }else if(value.pos <= -30.0f)
+        }else if(value.pos <= travelLimit)
         {
-            force = -30.0f/ (10f * coeficient);
+            force = travelLimit / (10f * coeficient);
         }
         else
         {
@@ -66,8 +66,8 @@ public class PositionFromSensor : MonoBehaviour
         }
         fVector = force - shiftCoef;
         //scaler = new Vector3(2f - fVector, 2f + fVector, 2f - fVector);
-        stick.transform.position = new Vector3(-3.06f, 16.93f + force-shiftCoef, 7f);
-        hand.transform.position = new Vector3(-15.18f, 10.95f + force-shiftCoef, -0.82f);
+        stick.transform.position = new Vector3(-3.06f, 14.431f + force-shiftCoef, 7f);
+        hand.transform.position = new Vector3(-15.18f, 9.03f + force-shiftCoef, -0.82f);
 
         //sphere.localScale = scaler;
 
