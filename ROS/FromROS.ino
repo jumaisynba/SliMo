@@ -13,8 +13,10 @@ IntervalTimer myTimer;
 
 float phase = 0.0;
 float freq = 100;
+  float value=0.0;
 
-float d_phase1 = 0.125;
+
+float d_phase1 = 0.01;
 float d_phase2 = 0.25;
 float d_phase3 = 0.5;
 
@@ -32,7 +34,7 @@ float curT;
 
 unsigned long lastTime = 0;
 
-unsigned long dt = 3; // dt in milliseconds
+unsigned long dt = 1; // dt in milliseconds
 
 float wait = 1000;
 ros::NodeHandle nh;
@@ -40,15 +42,15 @@ ros::NodeHandle nh;
 float varData = 0;
 float rotData = 0;
 
-
+bool thereIsAChange = false;
 
 void messageCB(const geometry_msgs::WrenchStamped& msg) {
   varData = msg.wrench.force.z;
   rotData = msg.wrench.torque.z;
-  char result[8];
+  char result[13];
 
-  dtostrf(varData , 6, 2, result);
-  if (rate != 0.00) {
+  dtostrf(value , 13, 10, result);
+  if (thereIsAChange) {
     nh.loginfo(result);
   }
 
@@ -85,7 +87,7 @@ void loop() {
   if (millis() - lastTime  >= dt)   // wait for dt milliseconds
   {
     lastTime = millis();
-    int sensorValue;
+    float sensorValue;
     if (varData >= -35.0 && varData <= -24.0) {
       sensorValue = varData;
     } else {
@@ -128,7 +130,6 @@ void loop() {
 void teensy(void) {
 
 
-  float value;
 
   float value2;
 
@@ -137,9 +138,14 @@ void teensy(void) {
   //coefficients for d_phase=0.1
   //4000 max = 7.1V (PtP) no amp
   //900-950 max = 11.1 - 11.3V(PtP) DC RMS-FS = 3.47V with amp
-  //if (rate < 0.0){
-  value = sin(phase * abs(rate)) * 1000 + 2048; //+2048;
-  //}
+  if (abs(rate) <= 1 && abs(rate) >= 0.3){
+  //  rate =1;
+    value = sin(phase * abs(rate)+twopi)*200 +200; //+2048;
+    thereIsAChange = true;
+  }else{
+    value = 0;
+    thereIsAChange = false;
+  }
   phase = phase + d_phase;
   value2 = sin(phase + twopi) * 400 + 2048;
   if (phase > twopi) {
