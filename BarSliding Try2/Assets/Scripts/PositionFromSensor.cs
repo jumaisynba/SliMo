@@ -19,10 +19,10 @@ public class PositionFromSensor : MonoBehaviour
 
     public float fVector;
     Vector3 scaler;
-    public float travelLimit = -35.0f;
+    public float travelLimit = -45.0f;
 
-    [Range(5.0f,10f)]
-    public float coeficient=5f; 
+    [Range(10f,20f)]
+    public float coeficient=10f; 
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +41,7 @@ public class PositionFromSensor : MonoBehaviour
         {
             coeficient = 5.0f;
         }
-        if (value.pos >= travelLimit && value.pos<=-24.0f )
+        if (value.pos >= travelLimit && value.pos<=-23.5f )
         {
             //tempHand.active = false;
             force = value.pos / (10f * coeficient);
