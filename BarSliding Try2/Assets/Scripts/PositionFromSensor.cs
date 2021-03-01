@@ -7,7 +7,7 @@ using System.IO.Ports;
 public class PositionFromSensor : MonoBehaviour
 {
 
-    public Rigidbody stick;
+    public GameObject stick;
     private KMSSensor value;
     private Transform hand;
     private GameObject tempHand;
@@ -26,7 +26,7 @@ public class PositionFromSensor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        value = stick.GetComponent<KMSSensor>();
+        value = this.gameObject.GetComponent<KMSSensor>();
         hand = GameObject.Find("RightHand").GetComponent<Transform>();
         tempHand = GameObject.Find("RightHand");
 
@@ -35,7 +35,7 @@ public class PositionFromSensor : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (coeficient == 0.0f)
         {
@@ -66,7 +66,7 @@ public class PositionFromSensor : MonoBehaviour
         }
         fVector = (force - shiftCoef)/2f;
         scaler = new Vector3(1f - fVector, 1f + fVector, 1f - fVector);
-        stick.transform.position = new Vector3(-3.06f, 14.581f + force-shiftCoef, 7f);
+        this.gameObject.transform.position = new Vector3(-3.06f, 14.581f + force-shiftCoef, 7f);
         hand.transform.position = new Vector3(-15.18f, 9.03f + force-shiftCoef, -0.82f);
         sphere.transform.position = new Vector3(-3.055f, 12.073f+fVector, 6.98f);
         sphere.localScale = scaler;
