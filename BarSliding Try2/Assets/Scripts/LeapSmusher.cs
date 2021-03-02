@@ -9,7 +9,9 @@ public class LeapSmusher : MonoBehaviour
     private Vector3 scaler;
     private Transform sphere;
     private Vector3 scaleMemoriser;
-    public float enterValue = 0.0f; 
+    public float enterValue = 0.0f;
+    public bool experiment= true;
+    public GameObject hand, stick, lipHand;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,18 @@ public class LeapSmusher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (experiment)
+        {
+            hand.SetActive(true);
+            stick.SetActive(true);
+            lipHand.SetActive(false);
+        }
+        else
+        {
+            hand.SetActive(false);
+            stick.SetActive(false);
+            lipHand.SetActive(true);
+        }
     }
     void OnTriggerEnter(Collider other){
         enterValue = other.gameObject.transform.position.y;

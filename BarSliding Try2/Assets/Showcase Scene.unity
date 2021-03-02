@@ -419,7 +419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &45719756
 Transform:
   m_ObjectHideFlags: 0
@@ -1298,6 +1298,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fVector: 0
   enterValue: 0
+  experiment: 1
+  hand: {fileID: 1727403969}
+  stick: {fileID: 414333364}
+  lipHand: {fileID: 1404367373274334}
 --- !u!1 &414333364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,8 +1354,8 @@ MonoBehaviour:
   shiftCoef: 0
   prevCoef: 0
   fVector: 0
-  travelLimit: -45
-  coeficient: 10
+  travelLimit: -30
+  coeficient: 20
 --- !u!114 &414333367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8380,7 +8384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1406446381625412
 GameObject:
   m_ObjectHideFlags: 0
