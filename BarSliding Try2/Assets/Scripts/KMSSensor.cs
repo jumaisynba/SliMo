@@ -22,10 +22,10 @@ public class KMSSensor  : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			SendMessage();
-		}
+		//if (Input.GetKeyDown(KeyCode.Space))
+		//{
+		//	SendMessage(modeToSend.mode.ToString());
+		//}
 	}
 	/// <summary> 	
 	/// Setup socket connection. 	
@@ -92,7 +92,7 @@ public class KMSSensor  : MonoBehaviour
 	/// <summary> 	
 	/// Send message to server using socket connection. 	
 	/// </summary> 	
-	private void SendMessage()
+	public void SendMessage(String messageGet)
 	{
 		if (socketConnection == null)
 		{
@@ -104,7 +104,7 @@ public class KMSSensor  : MonoBehaviour
 			NetworkStream stream = socketConnection.GetStream();
 			if (stream.CanWrite)
 			{
-				string clientMessage = "This is a message from one of your clients.";
+				string clientMessage = messageGet;
 				// Convert string message to byte array.                 
 				byte[] clientMessageAsByteArray = Encoding.ASCII.GetBytes(clientMessage);
 				// Write byte array to socketConnection stream.                 

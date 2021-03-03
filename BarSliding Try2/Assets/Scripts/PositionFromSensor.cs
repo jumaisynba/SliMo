@@ -38,6 +38,9 @@ public class PositionFromSensor : MonoBehaviour
     public int pressCounter = 5; 
     public float coeficient=10f;
     public bool entered = true;
+
+
+    private ModeToKMS kms;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +49,7 @@ public class PositionFromSensor : MonoBehaviour
         tempHand = GameObject.Find("RightHand");
         textSpace = GameObject.Find("Text").GetComponent<Text>();
         sphere = GameObject.Find("Sphere").GetComponent<Transform>();
+        kms = this.gameObject.GetComponent<ModeToKMS>();
 
     }
     // Update is called once per frame
@@ -416,8 +420,9 @@ public class PositionFromSensor : MonoBehaviour
             mode0 = false;
 
             pressCounter = 5;
-
             mode = modeNumber;
+            kms.SendMessage(mode.ToString());
+
             onceCounter = false;
         }
 
