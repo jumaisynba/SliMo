@@ -7,7 +7,7 @@ using System.Threading;
 using UnityEngine;
 using Newtonsoft.Json;
 
-public class KMSSensor : MonoBehaviour
+public class KMSSensor  : MonoBehaviour
 {
 	#region private members 	
 	private TcpClient socketConnection;
