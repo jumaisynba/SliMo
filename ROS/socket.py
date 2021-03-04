@@ -2,22 +2,29 @@
 import socket
 import sys
 import rospy
+import os
+
 #import json
 from geometry_msgs.msg import Wrench, WrenchStamped
-from std_msgs.msg import Float64
+from std_msgs.msg import Float64, String
 
 # Create a TCP/IP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind the socket to the port
-server_address = ("10.1.70.221", 8052)
+
+
+
+server_address = ("192.168.1.104", 8052)
 print(sys.stderr, "starting up on %s port %s" % server_address)
 
 
-sock.bind(("10.1.70.221", 8052))
+sock.bind(server_address)
 
 # Listen for incoming connections
-sock.listen(1)
+
+
+sock.listen()
 
 print(sys.stderr, "waiting for a connection")
 connection, client_address = sock.accept()
@@ -25,34 +32,44 @@ print(sys.stderr, "connection from", client_address)
 
 
 class Nodo():
-    def __init__(self):
-        self.position = None
-        sub = rospy.Subscriber('/wrench',
-                               WrenchStamped, self.callback)
 
-        print("I was here")
-        print(sub)
-        rospy.spin()
+			
 
-    def callback(self, data):
-        self.position = data.wrench.force.z
-        print(self.position)
-        try:
-            connection.send('|'.encode()+str(self.position).encode())
-        except:
-            connection.close()
-            print("closing connection")
-             
-        # ------------try sending data
-        # connection.send("I have position")
-        # finally:
-        # Clean up the connection
-        #
+	def __init__(self):
+		self.position = None
 
-        # rospy.spin()
+		#sub2 = rospy.Subscriber('/chatter', String, self.callback2)
+		sub = rospy.Subscriber('/wrench', WrenchStamped, self.callback)		
+		rospy.spin()
 
+			
+	#def callback2(self, data2):
+		
+		#print ("mode "+str(data2.data))
+	
+	def callback(self, data):
+		self.position = data.wrench.force.z
+		print(self.position)
+		#print(self.callback2)	
+
+		try:
+			connection.send('|'.encode()+str(self.position).encode())
+
+		except:
+			connection.close()
+			#rospy.shutdown()
+			print("closing connection")
+			exit()
+			
+		
+		
+	
+
+	
 
 if __name__ == '__main__':
     rospy.init_node('wearami_socket', anonymous=True)
-    print("also here")
-    Nodo()
+    #print("mode 0")
+    s = Nodo()	
+    
+connection.close()
