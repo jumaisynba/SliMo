@@ -29,7 +29,7 @@ public class PositionFromSensor : MonoBehaviour
 
 
     public bool start;
-    public bool onceCounter;
+    private bool onceCounter;
 
 
     public float travelLimit = -45.0f;
@@ -329,6 +329,7 @@ public class PositionFromSensor : MonoBehaviour
         {
             mode = 0;
             start = false;
+            kms.SendMessage(mode.ToString());
         }
 
 
