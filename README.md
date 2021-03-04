@@ -6,8 +6,11 @@
 ### 2. sending data to Teensy board
 ```rosrun rosserial_python serial_node.py /dev/ttyACM0```
 
-### 3. sending data to Unity PC
+### 3. sending data to Unity PC and back
  
  ```python3 server.py```
+ 
+ ```python3 testSocket.py``` in the new terminal window
+
  
  # Unity Part
