@@ -41,7 +41,8 @@ def nodo():
 		pub.publish(mode.decode("utf-8"))
 		if not mode:
 			break
-		print(mode.decode("utf-8"))
+		if (mode.decode("utf-8") !=0):
+			print(mode.decode("utf-8"))
 
 	#rospy.spin()
 
@@ -57,4 +58,3 @@ if __name__ == '__main__':
 	
 
     
-
