@@ -186,19 +186,19 @@ void loop() {
     dt = 0;
     d_phase = 0;
     curState = 3;
-    distanceLim = -45;
+    distanceLim = -40;
 
   } else if (modeInt == 8) {
     dt = 2;
     d_phase = 0.1;
     curState = 8;
-    distanceLim = -40;
+    distanceLim = -35;
 
   } else if (modeInt == 12) {
     dt = 5;
     d_phase = 0.5;
     curState = 12;
-    distanceLim = -45;
+    distanceLim = -40;
 
 
 
@@ -206,7 +206,7 @@ void loop() {
     dt = 0;
     d_phase = 0;
     curState = 2;
-    distanceLim = -40;
+    distanceLim = -35;
 
 
 
@@ -221,7 +221,7 @@ void loop() {
     dt = 10;
     d_phase = 0.1;
     curState = 6;
-    distanceLim = -45;
+    distanceLim = -40;
 
 
 
@@ -229,7 +229,7 @@ void loop() {
     dt = 2;
     d_phase = 0.1;
     curState = 9;
-    distanceLim = -45;
+    distanceLim = -40;
 
 
 
@@ -237,7 +237,7 @@ void loop() {
     dt = 5;
     d_phase = 0.5;
     curState = 11;
-    distanceLim = -40;
+    distanceLim = -35;
 
 
 
@@ -245,7 +245,7 @@ void loop() {
     dt = 10;
     d_phase = 0.1;
     curState = 4;
-    distanceLim = -35;
+    distanceLim = -30;
 
 
 
@@ -253,7 +253,7 @@ void loop() {
     dt = 10;
     d_phase = 0.1;
     curState = 5;
-    distanceLim = -40;
+    distanceLim = -35;
 
 
 
