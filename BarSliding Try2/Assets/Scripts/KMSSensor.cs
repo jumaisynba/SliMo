@@ -50,7 +50,7 @@ public class KMSSensor  : MonoBehaviour
 	{
 		try
 		{
-			socketConnection = new TcpClient("192.168.1.104", 8052);
+			socketConnection = new TcpClient("192.168.56.1", 8052);
 			Byte[] bytes = new Byte[1024];
 			while (true)
 			{

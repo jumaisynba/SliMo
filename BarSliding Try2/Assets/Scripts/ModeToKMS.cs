@@ -49,7 +49,7 @@ public class ModeToKMS : MonoBehaviour
 	{
 		try
 		{
-			socketConnection = new TcpClient("192.168.1.104", 9090);
+			socketConnection = new TcpClient("192.168.56.1", 9090);
 			Byte[] bytes = new Byte[1024];
 			while (true)
 			{

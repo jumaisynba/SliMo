@@ -1927,7 +1927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fVector: 0
   enterValue: 0
-  experiment: 0
+  experiment: 1
   hand: {fileID: 1727403969}
   stick: {fileID: 414333364}
   lipHand: {fileID: 1404367373274334}
@@ -1974,7 +1974,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414333364}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b549241c6fbf85a41ac62dfd761d937c, type: 3}
   m_Name: 
@@ -2012,7 +2012,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414333364}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa2fe0d02cce01741806ab905495964c, type: 3}
   m_Name: 
