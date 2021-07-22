@@ -1,4 +1,4 @@
-# Linux Part
+<!-- # Linux Part -->
 
 ### 1. launching sensor
 ```roslaunch weiss_kms40 kms40.launch```
